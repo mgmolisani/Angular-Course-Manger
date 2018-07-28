@@ -1,3 +1,17 @@
-<p>
-  list-widget works!
-</p>
+<div [ngSwitch]="widget.listType">
+  <ol *ngSwitchCase="ListType.Ordered"
+      [ngClass]="widget.className"
+      [ngStyle]="widget.style">
+    <li *ngFor="let item of listItems">
+      {{item}}
+    </li>
+  </ol>
+  <ul *ngSwitchCase="ListType.Unordered"
+      [ngClass]="widget.className"
+      [ngStyle]="widget.style">
+    <li *ngFor="let item of listItems">
+      {{item}}
+    </li>
+  </ul>
+</div>
+

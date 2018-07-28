@@ -18,7 +18,6 @@ export class ImageWidgetComponent implements OnInit {
       height: this.widget.height,
       ...this.widget.style
     };
-    console.log(this.adjustedStyles);
   }
 
 }

@@ -1,5 +1,6 @@
 import {Component, Input, OnInit} from '@angular/core';
 import {Widget} from '../models/model.widget';
+import {ListType} from '../enumerations/enum.list-type';
 
 @Component({
   selector: 'app-list-widget',
@@ -8,10 +9,13 @@ import {Widget} from '../models/model.widget';
 })
 export class ListWidgetComponent implements OnInit {
   @Input() widget: Widget = new Widget;
+  ListType = ListType;
+  listItems: String[] = [];
 
   constructor() { }
 
   ngOnInit() {
+    this.listItems = this.widget.text.split('\n');
   }
 
 }
