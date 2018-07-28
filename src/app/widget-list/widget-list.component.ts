@@ -1,7 +1,5 @@
-import { Component, OnInit } from '@angular/core';
-import {Module} from '../models/model.module';
+import {Component, OnInit} from '@angular/core';
 import {ActivatedRoute} from '@angular/router';
-import {ModuleService} from '../services/service.module';
 import {Widget} from '../models/model.widget';
 import {WidgetService} from '../services/service.widget';
 
@@ -23,7 +21,11 @@ export class WidgetListComponent implements OnInit {
 
   setParams(params) {
     this.lessonId = params['lessonId'];
-    this.loadWidgets(this.lessonId);
+    if (this.lessonId) {
+      this.loadWidgets(this.lessonId);
+    } else {
+      this.loaded = true;
+    }
   }
 
   loadWidgets(lessonId) {

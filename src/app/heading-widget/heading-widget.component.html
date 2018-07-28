@@ -1,3 +1,11 @@
-<p>
-  heading-widget works!
-</p>
+<div [ngSwitch]="widget.size">
+  <h1 *ngSwitchCase="1"
+      [ngClass]="widget.className"
+      [ngStyle]="widget.style">{{widget.text}}</h1>
+  <h2 *ngSwitchCase="2"
+      [ngClass]="widget.className"
+      [ngStyle]="widget.style">{{widget.text}}</h2>
+  <h3 *ngSwitchCase="3"
+      [ngClass]="widget.className"
+      [ngStyle]="widget.style">{{widget.text}}</h3>
+</div>

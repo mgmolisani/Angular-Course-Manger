@@ -2,7 +2,11 @@
   <div *ngIf="widgets.length > 0; else widgetsPlaceholder">
     <div *ngFor="let widget of widgets">
       <div [ngSwitch]="widget.widgetType">
-          <app-heading-widget *ngSwitchCase="'Heading'"></app-heading-widget>
+        <app-heading-widget *ngSwitchCase="'Heading'" [widget]="widget"></app-heading-widget>
+        <app-paragraph-widget *ngSwitchCase="'Paragraph'" [widget]="widget"></app-paragraph-widget>
+        <app-link-widget *ngSwitchCase="'Link'" [widget]="widget"></app-link-widget>
+        <app-image-widget *ngSwitchCase="'Image'" [widget]="widget"></app-image-widget>
+        <app-list-widget *ngSwitchCase="'List'" [widget]="widget"></app-list-widget>
       </div>
     </div>
   </div>

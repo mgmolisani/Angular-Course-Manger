@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, Input, OnInit} from '@angular/core';
+import {Widget} from '../models/model.widget';
 
 @Component({
   selector: 'app-paragraph-widget',
@@ -6,6 +7,7 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./paragraph-widget.component.css']
 })
 export class ParagraphWidgetComponent implements OnInit {
+  @Input() widget: Widget = new Widget;
 
   constructor() { }
 
