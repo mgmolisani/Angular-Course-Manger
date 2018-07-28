@@ -1,5 +1,4 @@
 import {errorCallback} from './service.errorcallback';
-import {Widget} from '../models/model.widget';
 
 export class WidgetService {
   private static WIDGET_API_URL = 'https://mmolisani-course-manager.herokuapp.com/api/lesson/LID/widget';
@@ -15,9 +14,4 @@ export class WidgetService {
         return responseJson.then(errorCallback);
       });
   }
-
-/*  getStyles(widget: Widget) {
-    return Object.entries(widget.style).join()
-  }*/
-
 }

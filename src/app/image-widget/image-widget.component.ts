@@ -8,10 +8,17 @@ import {Widget} from '../models/model.widget';
 })
 export class ImageWidgetComponent implements OnInit {
   @Input() widget: Widget = new Widget;
+  adjustedStyles: object = {};
 
   constructor() { }
 
   ngOnInit() {
+    this.adjustedStyles = {
+      width: this.widget.width,
+      height: this.widget.height,
+      ...this.widget.style
+    };
+    console.log(this.adjustedStyles);
   }
 
 }
