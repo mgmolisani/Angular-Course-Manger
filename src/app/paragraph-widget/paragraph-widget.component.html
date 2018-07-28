@@ -1,3 +1,4 @@
-<p>
-  paragraph-widget works!
+<p [ngClass]="widget.className"
+   [ngStyle]="widget.style">
+  {{widget.text}}
 </p>
