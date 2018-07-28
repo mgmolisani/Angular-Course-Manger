@@ -1,0 +1,16 @@
+<ng-container *ngIf="loaded">
+  <div *ngIf="widgets.length > 0; else widgetsPlaceholder">
+    <div *ngFor="let widget of widgets">
+      <div [ngSwitch]="widget.widgetType">
+          <app-heading-widget *ngSwitchCase="'Heading'"></app-heading-widget>
+      </div>
+    </div>
+  </div>
+
+
+  <ng-template #widgetsPlaceholder>
+    <h3 class="text-center">
+      {{lessonId ? 'No widgets were found for this lesson.' : 'Please select a lesson from the list above.'}}
+    </h3>
+  </ng-template>
+</ng-container>

@@ -1,15 +1,18 @@
 <ng-container *ngIf="loaded">
-  <ul *ngIf="lessons.length > 0; else lessonsPlaceholder"
-      class="nav nav-tabs">
-    <li *ngFor="let lesson of lessons"
-        class="nav-item">
-      <a class="nav-link wbdv"
-         [ngClass]="{'active': lesson.id == lessonId}"
-         routerLink="/course/{{courseId}}/module/{{moduleId}}/lesson/{{lesson.id}}">
-        {{lesson.title}}
-      </a>
-    </li>
-  </ul>
+  <div *ngIf="lessons.length > 0; else lessonsPlaceholder">
+    <ul class="nav nav-tabs">
+      <li *ngFor="let lesson of lessons"
+          class="nav-item">
+        <a class="nav-link wbdv"
+           [ngClass]="{'active': lesson.id == lessonId}"
+           routerLink="/course/{{courseId}}/module/{{moduleId}}/lesson/{{lesson.id}}">
+          {{lesson.title}}
+        </a>
+      </li>
+    </ul>
+    <app-widget-list></app-widget-list>
+  </div>
+
 
   <ng-template #lessonsPlaceholder>
     <h3 class="text-center">

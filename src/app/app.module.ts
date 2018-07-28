@@ -11,6 +11,13 @@ import {ModuleService} from './services/service.module';
 import {CourseViewerComponent} from './course-viewer/course-viewer.component';
 import {LessonTabsComponent} from './lesson-tabs/lesson-tabs.component';
 import {LessonService} from './services/service.lesson';
+import {WidgetListComponent} from './widget-list/widget-list.component';
+import {WidgetService} from './services/service.widget';
+import { HeadingWidgetComponent } from './heading-widget/heading-widget.component';
+import { ParagraphWidgetComponent } from './paragraph-widget/paragraph-widget.component';
+import { LinkWidgetComponent } from './link-widget/link-widget.component';
+import { ImageWidgetComponent } from './image-widget/image-widget.component';
+import { ListWidgetComponent } from './list-widget/list-widget.component';
 
 @NgModule({
   declarations: [
@@ -19,7 +26,13 @@ import {LessonService} from './services/service.lesson';
     CourseGridComponent,
     ModuleListComponent,
     CourseViewerComponent,
-    LessonTabsComponent
+    LessonTabsComponent,
+    WidgetListComponent,
+    HeadingWidgetComponent,
+    ParagraphWidgetComponent,
+    LinkWidgetComponent,
+    ImageWidgetComponent,
+    ListWidgetComponent
   ],
   imports: [
     BrowserModule,
@@ -28,7 +41,8 @@ import {LessonService} from './services/service.lesson';
   providers: [
     CourseService,
     ModuleService,
-    LessonService
+    LessonService,
+    WidgetService
   ],
   bootstrap: [
     AppComponent
