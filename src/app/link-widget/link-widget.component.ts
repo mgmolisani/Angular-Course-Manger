@@ -8,10 +8,15 @@ import {Widget} from '../models/model.widget';
 })
 export class LinkWidgetComponent implements OnInit {
   @Input() widget: Widget = new Widget;
+  adjustedStyle: object = {};
 
   constructor() { }
 
   ngOnInit() {
+    this.adjustedStyle = {
+      textDecoration: 'none',
+      ...this.widget.style
+    };
   }
 
 }

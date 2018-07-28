@@ -1,3 +1,5 @@
-<p>
-  link-widget works!
-</p>
+<a [href]="widget.link"
+   [ngClass]="widget.className"
+   [ngStyle]="adjustedStyle">
+  {{widget.text || widget.link}}
+</a>
