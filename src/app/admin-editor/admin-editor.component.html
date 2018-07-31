@@ -9,12 +9,27 @@
          type="number"
          placeholder="Seats available"
          [(ngModel)]="seats">
-  <button (click)="createSection()" class="btn btn-success btn-block">
+  <button (click)="createSection()"
+          class="btn btn-success btn-block">
     Add Section
+  </button>
+  <button (click)="updateSection()"
+          class="btn btn-primary btn-block">
+    Update Section
   </button>
   <ul class="list-group">
     <li *ngFor="let section of sections" class="list-group-item">
       {{section.name}}
+      <div class="btn-group float-right">
+        <button (click)="editSection(section)"
+                class="btn btn-primary">
+          Edit
+        </button>
+        <button (click)="deleteSection(section)"
+                class="btn btn-primary">
+          Delete
+        </button>
+      </div>
       <span class="badge badge-primary badge-pill">{{section.seats}}</span>
     </li>
   </ul>

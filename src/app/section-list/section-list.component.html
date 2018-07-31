@@ -4,7 +4,9 @@
     <li *ngFor="let section of sections" class="list-group-item">
       {{section.name}}
       <button (click)="enroll(section)"
-              class="float-right btn btn-primary">Enroll
+              class="float-right btn btn-primary"
+              [disabled]="section.seats === 0">
+        Enroll
       </button>
       <span class="badge badge-primary badge-pill">{{section.seats}}</span>
     </li>

@@ -12,6 +12,7 @@ export class AdminEditorComponent implements OnInit {
   sectionName = '';
   seats = '';
   courseId = '';
+  sectionId = null;
   sections: Section[] = [];
 
   constructor(private service: SectionService,
@@ -42,6 +43,31 @@ export class AdminEditorComponent implements OnInit {
       .createSection(section, () => {
         this.loadSections(this.courseId);
       });
+  }
+
+  deleteSection(section) {
+    this.service
+      .deleteSection(section._id, () => {
+        this.loadSections(this.courseId);
+      });
+  }
+
+  updateSection() {
+    const section = {
+      name: this.sectionName,
+      seats: parseInt(this.seats, 10),
+      courseId: parseInt(this.courseId, 10)
+    };
+    this.service
+      .updateSection(this.sectionId, section, () => {
+        this.loadSections(this.courseId);
+      });
+  }
+
+  editSection(section) {
+    this.sectionName = section.name;
+    this.seats = section.seats;
+    this.sectionId = section._id;
   }
 
   ngOnInit() {

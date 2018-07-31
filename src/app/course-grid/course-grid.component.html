@@ -1,4 +1,25 @@
 <h2>Course Grid ({{courses.length}})</h2>
+<div [ngSwitch]="role">
+  <div *ngSwitchCase="'Guest'">
+    <a routerLink="/login">
+      Login
+    </a>
+    <br/>
+    <a routerLink="/register">
+      Register
+    </a>
+  </div>
+  <div *ngSwitchCase="'Faculty'">
+    <a routerLink="/profile">
+      Profile
+    </a>
+  </div>
+  <div *ngSwitchCase="'Student'">
+    <a routerLink="/profile">
+      Profile
+    </a>
+  </div>
+</div>
 <div class="row">
   <div *ngFor="let course of courses"
        class="col-sm-3">
@@ -6,9 +27,19 @@
       <div class="card-body">
         <h5 class="card-title">{{course.title}}</h5>
         <a routerLink="/course/{{course.id}}"
-           class="btn btn-primary">Go somewhere</a>
+           class="btn btn-primary">
+          Content
+        </a>
         <a routerLink="/course/{{course.id}}/section"
-           class="btn btn-primary">Enroll</a>
+           class="btn btn-secondary"
+           [hidden]="enrolled.includes(course.id) || role === 'Guest'">
+          Enroll
+        </a>
+        <a routerLink="/course/{{course.id}}/admin"
+           class="btn btn-danger"
+           [hidden]="role !== 'Faculty'">
+          Manage
+        </a>
       </div>
     </div>
   </div>

@@ -5,6 +5,6 @@ export class User {
   lastName?: string;
   phone?: string;
   email?: string;
-  dateOfBirth?: Date;
+  dateOfBirth?: string;
   role?: string;
 }
