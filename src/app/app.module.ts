@@ -25,6 +25,7 @@ import {UserService} from './services/service.user';
 import {FormsModule} from '@angular/forms';
 import {SectionService} from './services/service.section';
 import { SectionListComponent } from './section-list/section-list.component';
+import { AdminEditorComponent } from './admin-editor/admin-editor.component';
 
 @NgModule({
   declarations: [
@@ -43,7 +44,8 @@ import { SectionListComponent } from './section-list/section-list.component';
     LoginComponent,
     RegisterComponent,
     ProfileComponent,
-    SectionListComponent
+    SectionListComponent,
+    AdminEditorComponent
   ],
   imports: [
     FormsModule,

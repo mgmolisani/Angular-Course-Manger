@@ -33,6 +33,14 @@ export class ProfileComponent implements OnInit {
       });
   }
 
+  unroll(section) {
+    this.sectionService
+      .deleteEnrollment(section._id, () => {
+        this.sectionService
+          .findSectionsForStudent(sections => this.sections = sections);
+      });
+  }
+
   ngOnInit() {
     this.userService
       .getProfile(user => this.user = user);

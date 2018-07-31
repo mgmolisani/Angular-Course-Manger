@@ -2,17 +2,42 @@
   <h1>Profile</h1>
 
   <input [(ngModel)]="user.username"
+         name="username"
          placeholder="username"
          class="form-control"/>
   <input [(ngModel)]="user.firstName"
+         name="firstname"
          placeholder="first name"
          class="form-control"/>
   <input [(ngModel)]="user.lastName"
+         name="lastname"
          placeholder="lastName"
          class="form-control"/>
+  <input [(ngModel)]="user.phone"
+         name="phone"
+         type="tel"
+         placeholder="phone number"
+         class="form-control"/>
   <input [(ngModel)]="user.email"
+         name="email"
+         type="email"
          placeholder="email"
          class="form-control"/>
+  <input [(ngModel)]="user.dateOfBirth"
+         name="dob"
+         type="date"
+         placeholder="Date of birth"
+         class="form-control"/>
+  <select [(ngModel)]="user.role"
+          name="role"
+          class="form-control">
+    <option>
+      Student
+    </option>
+    <option>
+      Faculty
+    </option>
+  </select>
   <button (click)="update()"
           class="btn btn-primary btn-block">
     Update
@@ -23,11 +48,16 @@
   <ul class="list-group">
     <li *ngFor="let section of sections" class="list-group-item">
       {{section.name}}
+      <button (click)="unroll(section)"
+              class="float-right btn btn-primary">
+        Drop
+      </button>
       <span class="badge badge-primary badge-pill">{{section.seats}}</span>
     </li>
   </ul>
 
   <a (click)="logout()">Logout</a>
+  <br/>
   <a routerLink="/home">Home</a>
 
 </div>

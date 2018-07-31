@@ -8,12 +8,24 @@
            [(ngModel)]="username"/>
     <input class="form-control"
            name="password"
+           type="password"
            placeholder="password"
            [(ngModel)]="password"/>
     <input class="form-control"
            name="verify"
+           type="password"
            placeholder="verify password"
            [(ngModel)]="verifyPassword"/>
+    <select [(ngModel)]="role"
+            name="role"
+            class="form-control">
+      <option>
+        Student
+      </option>
+      <option>
+        Faculty
+      </option>
+    </select>
     <button (click)="register()"
             class="btn btn-primary btn-block">
       Register
@@ -21,6 +33,7 @@
   </form>
 
   <a routerLink="/login">Login</a>
+  <br/>
   <a routerLink="/home">Home</a>
 
 </div>

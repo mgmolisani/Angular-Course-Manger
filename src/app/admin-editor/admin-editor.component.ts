@@ -1,14 +1,16 @@
-import {Component, OnInit} from '@angular/core';
+import { Component, OnInit } from '@angular/core';
+import {Section} from '../models/model.section';
 import {SectionService} from '../services/service.section';
 import {ActivatedRoute, Router} from '@angular/router';
-import {Section} from '../models/model.section';
 
 @Component({
-  selector: 'app-section-list',
-  templateUrl: './section-list.component.html',
-  styleUrls: ['./section-list.component.css']
+  selector: 'app-admin-editor',
+  templateUrl: './admin-editor.component.html',
+  styleUrls: ['./admin-editor.component.css']
 })
-export class SectionListComponent implements OnInit {
+export class AdminEditorComponent implements OnInit {
+  sectionName = '';
+  seats = '';
   courseId = '';
   sections: Section[] = [];
 
@@ -30,10 +32,15 @@ export class SectionListComponent implements OnInit {
       .findSectionsForCourse(courseId, sections => this.sections = sections);
   }
 
-  enroll(section) {
+  createSection() {
+    const section = {
+      name: this.sectionName,
+      seats: parseInt(this.seats, 10),
+      courseId: parseInt(this.courseId, 10)
+    };
     this.service
-      .createEnrollment(section._id, () => {
-        this.router.navigate(['profile']);
+      .createSection(section, () => {
+        this.loadSections(this.courseId);
       });
   }
 

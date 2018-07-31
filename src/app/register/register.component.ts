@@ -11,6 +11,7 @@ import {User} from '../models/model.user';
 export class RegisterComponent implements OnInit {
   username: '';
   password: '';
+  role: 'Student';
   verifyPassword: '';
 
   constructor(private router: Router,
@@ -22,7 +23,8 @@ export class RegisterComponent implements OnInit {
       if (this.password === this.verifyPassword) {
         const user: User = {
           username: this.username,
-          password: this.password
+          password: this.password,
+          role: this.role
         };
         this.service
           .register(user, () => {
