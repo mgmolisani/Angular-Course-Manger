@@ -31,6 +31,9 @@ export class WidgetListComponent implements OnInit {
   loadWidgets(lessonId) {
     this.service.findWidgetsForLesson(lessonId,
       widgets => {
+        widgets.sort((a, b) => {
+          return a.position - b.position;
+        });
         this.widgets = widgets;
         this.loaded = true;
       });

@@ -1,0 +1,21 @@
+<div class="container-fluid">
+  <h1>Login</h1>
+
+  <form>
+    <input class="form-control"
+           name="username"
+           placeholder="username"
+           [(ngModel)]="username"/>
+    <input class="form-control"
+           name="password"
+           placeholder="password"
+           [(ngModel)]="password"/>
+    <button (click)="login()"
+            class="btn btn-primary btn-block">
+      Login
+    </button>
+  </form>
+
+  <a routerLink="/register">Register</a>
+  <a routerLink="/home">Home</a>
+</div>

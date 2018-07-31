@@ -13,11 +13,18 @@ import {LessonTabsComponent} from './lesson-tabs/lesson-tabs.component';
 import {LessonService} from './services/service.lesson';
 import {WidgetListComponent} from './widget-list/widget-list.component';
 import {WidgetService} from './services/service.widget';
-import { HeadingWidgetComponent } from './heading-widget/heading-widget.component';
-import { ParagraphWidgetComponent } from './paragraph-widget/paragraph-widget.component';
-import { LinkWidgetComponent } from './link-widget/link-widget.component';
-import { ImageWidgetComponent } from './image-widget/image-widget.component';
-import { ListWidgetComponent } from './list-widget/list-widget.component';
+import {HeadingWidgetComponent} from './heading-widget/heading-widget.component';
+import {ParagraphWidgetComponent} from './paragraph-widget/paragraph-widget.component';
+import {LinkWidgetComponent} from './link-widget/link-widget.component';
+import {ImageWidgetComponent} from './image-widget/image-widget.component';
+import {ListWidgetComponent} from './list-widget/list-widget.component';
+import {LoginComponent} from './login/login.component';
+import {RegisterComponent} from './register/register.component';
+import {ProfileComponent} from './profile/profile.component';
+import {UserService} from './services/service.user';
+import {FormsModule} from '@angular/forms';
+import {SectionService} from './services/service.section';
+import { SectionListComponent } from './section-list/section-list.component';
 
 @NgModule({
   declarations: [
@@ -32,9 +39,14 @@ import { ListWidgetComponent } from './list-widget/list-widget.component';
     ParagraphWidgetComponent,
     LinkWidgetComponent,
     ImageWidgetComponent,
-    ListWidgetComponent
+    ListWidgetComponent,
+    LoginComponent,
+    RegisterComponent,
+    ProfileComponent,
+    SectionListComponent
   ],
   imports: [
+    FormsModule,
     BrowserModule,
     routing
   ],
@@ -42,7 +54,9 @@ import { ListWidgetComponent } from './list-widget/list-widget.component';
     CourseService,
     ModuleService,
     LessonService,
-    WidgetService
+    WidgetService,
+    UserService,
+    SectionService
   ],
   bootstrap: [
     AppComponent
